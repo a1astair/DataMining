@@ -36,10 +36,12 @@ The **team_max** is 3 times the number of games that time has played, representi
 </br>
 
 ## Plan
-We will create 	a random algorithm to use as a baseline comparison against a machine-learning approach.
+We will create a baseline algorithm to use as a baseline comparison against a machine-learning approach.
 
-#### Random Algorithm
-Our random algorithm will chose one of the teams randomly and predict them as the winner of the match.
+#### A Baseline Algorithm
+We will implement prediction algorithm that always predicts the outcome of the upcoming match as the mode of the previous X matches of each team. This will serve as a comparision, along with the theortical randomized guessing rate of 33%, for our machine learning implementations.
+
+If both teams in a match are predicted to have the same outcome as one another, then this will be considered a prediction of a draw.
 
 #### Machine Learning
 We will take two similar approaches in this area.
@@ -52,6 +54,7 @@ We will investigate whether or not a machine learning approach is any better tha
 </br>
 
 ## To Do
+- Build baseline prediction and calculate its accuracy for different lengths of history set
 - Redefine our closeness to relegations stat to include the theoretical remaining points a team could achieve so we can measure the closeness to relegation more accurately.
 	- thinking is that, if you only have a few more chances to make up enough points to leave the relegation set, then you are closer to relegation.
 - Define what measures to use when checking if a team is playing 'better'; is it simply number of goals scored?
