@@ -1,0 +1,28 @@
+1.  Are you planning to predict the winner for each game?
+
+2.  If so, you can consider each of the  games to be two training 
+    instances (one per team) and the prediction is win/loss.
+
+3.  Think of what you should do if the prediction is lose (or win)
+    for both teams.
+
+4.  Also, you can’t use the goals scored as a feature for predicting 
+    the winner - since it would tell you the answer, no?
+
+5.  You might consider using the features from previous games to help 
+    boost your accuracy.
+
+6.  You could use the number of goals scored in the previous 5 games, 
+    and the number of wins in the previous 5 games, or something like that.
+
+7.  I’m a little worried that without using historical data you might 
+    not have enough information to predict the outcome of a 
+    particular game. What will you compare against?
+
+8.  How well can you do over an “algorithm” that just predicts 
+    whatever the outcome was the last time the two teams met?
+
+9.  Or one that always predicts the home team will win?
+
+10. By the midterm report I expect you to have your data creation 
+    done and a naive algorithm implemented (consider the two examples above). 
