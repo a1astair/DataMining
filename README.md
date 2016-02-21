@@ -1,9 +1,6 @@
 # Seng 474 Data Mining Project
 ## Team
----
-=======
-# DataMining
-###Seng 474 Data mining project
+
 - Alastair Beaumont
 - Kolby Chapman
 - Graeme Nathan
@@ -12,7 +9,6 @@
 </br>
 
 ## Data
----
 ### Data We Have
 - Home team *(str)*
 - Away team *(str)*
@@ -40,7 +36,6 @@ The **team_max** is 3 times the number of games that time has played, representi
 </br>
 
 ## Plan
----
 We will create 	a random algorithm to use as a baseline comparison against a machine-learning approach.
 
 #### Random Algorithm
@@ -57,7 +52,6 @@ We will investigate whether or not a machine learning approach is any better tha
 </br>
 
 ## To Do
----
 - Redefine our closeness to relegations stat to include the theoretical remaining points a team could achieve so we can measure the closeness to relegation more accurately.
 	- thinking is that, if you only have a few more chances to make up enough points to leave the relegation set, then you are closer to relegation.
 - Define what measures to use when checking if a team is playing 'better'; is it simply number of goals scored?
