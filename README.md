@@ -1,10 +1,16 @@
+<<<<<<< HEAD
 # Seng 474 Data Mining Project
 ## Team
 ---
+=======
+# DataMining
+###Seng 474 Data mining project
+>>>>>>> 914f6eef55a41aca9b71d868d3672b98e5075e12
 - Alastair Beaumont
 - Kolby Chapman
 - Graeme Nathan
 - Cole Peterson
+<<<<<<< HEAD
 
 </br>
 
@@ -65,3 +71,5 @@ We will investigate whether or not a machine learning approach is any better tha
 
 
 
+=======
+>>>>>>> 914f6eef55a41aca9b71d868d3672b98e5075e12
