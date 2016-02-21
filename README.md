@@ -1,16 +1,13 @@
-<<<<<<< HEAD
 # Seng 474 Data Mining Project
 ## Team
 ---
 =======
 # DataMining
 ###Seng 474 Data mining project
->>>>>>> 914f6eef55a41aca9b71d868d3672b98e5075e12
 - Alastair Beaumont
 - Kolby Chapman
 - Graeme Nathan
 - Cole Peterson
-<<<<<<< HEAD
 
 </br>
 
@@ -65,11 +62,3 @@ We will investigate whether or not a machine learning approach is any better tha
 	- thinking is that, if you only have a few more chances to make up enough points to leave the relegation set, then you are closer to relegation.
 - Define what measures to use when checking if a team is playing 'better'; is it simply number of goals scored?
 
-
-
-
-
-
-
-=======
->>>>>>> 914f6eef55a41aca9b71d868d3672b98e5075e12
