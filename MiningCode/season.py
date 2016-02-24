@@ -59,7 +59,7 @@ class Season:
     def points_on_date(self,team, date):
         value = 0
         for game in self.points[team]:
-            if game[1] > date:
+            if game[1] >= date:
                 break
             else:
                 value = game[0]
@@ -74,7 +74,7 @@ class Season:
     def gamesPlayed(self,team,date):
         count = 0
         for game in self.record[team]:
-            if game[1] > date:
+            if game[1] >= date:
                 return count
             else:
                 count += 1
@@ -89,5 +89,24 @@ class Season:
             else:
                 rank += 1
         return (rank,remain_games)
+
+    def lastGame(self,team,date):
+        last_game = 'N'
+        for game in self.record[team]:
+            if game[1] >= date:
+                break
+            else:
+                last_game = game[0]
+        return last_game
+
+    def custom_points_on_date(self, team, date):
+        value = 0
+        for game in record[team]:
+            if game[1] >= date:
+                break
+            else:
+                #other stuff
+                value += 1 #dummy holder
+        return value
     
        
