@@ -8,6 +8,7 @@ class Season:
         self.record = {}
         self.points = {}
         self.teams = []
+        self.max_points = 3 * 38 
         data = pd.read_csv(filename)
         for index, row in data.iterrows():
             home = row['HomeTeam']
@@ -30,7 +31,7 @@ class Season:
                 self.addResult(away,'W',date)
             else:
                 self.addResult(home,'D',date)
-                self.addResult(home,'D',date)
+                self.addResult(away,'D',date)
         
 
     def addResult(self,team,result,date):
@@ -63,6 +64,7 @@ class Season:
         value = 0
         for game in self.points[team]:
             if game[1] >= date:
+            #if game[1] > date:
                 break
             else:
                 value = game[0]
