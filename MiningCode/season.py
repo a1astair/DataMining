@@ -7,10 +7,13 @@ class Season:
         self.matches = []
         self.record = {}
         self.points = {}
+        self.teams = []
         data = pd.read_csv(filename)
         for index, row in data.iterrows():
             home = row['HomeTeam']
             away = row['AwayTeam']
+            if home not in self.teams:
+                self.teams.append(home)
             res  = row['FTR']
             date = time.strptime(row['Date'],'%d/%m/%y')
             self.matches.append((date,home,away,res))
