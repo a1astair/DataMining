@@ -10,255 +10,126 @@
 %
 \usepackage{cite}
 
+
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
- 
+
 \begin{document}
 
 %
 % paper title
 
-\title{Team Prediction in the English Premier League\\ {\large CSC 587}}
-% author names and affiliations
+\title{Team Prediction in the English Premier League\\ {\large SENG 474}}
 
-
-\author{
-\IEEEauthorblockN{Alastair Beaumont}
-\IEEEauthorblockA{University of Victoria\\
-Email: a.beaumont11@gmail.com}\\   %<------ Line breaks in the current column
-\IEEEauthorblockN{Kolby Chapman}
-\IEEEauthorblockA{University of Victoria\\
-Email: kol.j63@gmail.com}
-\and
-\IEEEauthorblockN{Nishant Khanna}
-\IEEEauthorblockA{University of Victoria\\
-Email: nishantnkhanna@gmail.com}\\
-\IEEEauthorblockN{Graeme Nathan}
-\IEEEauthorblockA{University of Victoria\\
-Email: graemenathan@gmail.com}
-\and
-\IEEEauthorblockN{Cole Peterson}
-\IEEEauthorblockA{University of Victoria\\
-Email: colpeterson@gmail.com}                 %<-----------
-
+\author{%
+  Alastair Beaumont\\University of Victoria\\a.beaumont11@gmail.com
+  \and Kolby Chapman\\University of Victoria\\kol.j63@gmail.com
+  \and Graeme Nathan\\University of Victoria\\graemenathan@gmail.com
+  \and Cole Peterson\\University of Victoria\\colpeterson@gmail.com
 }
 
 % make the title area
 \maketitle
+
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 % For peerreview papers, this IEEEtran command inserts a page break and
 % creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
 
-
-
 \section{Introduction}
-This project will mine English Premier League data to predict the winners of soccer games. One factor we are particularly excited to consider is the threat of relegation, as it is a rather unique and important element of the league. We intend to join information from multiple data sources and test many different algorithms on the project, as many freely available dataset are lacking, and many different algorithms have shown success on similar problems.
+This project will mine English Premier League (EPL) data to predict the winners of soccer games. One factor we are particularly excited to consider is the threat of relegation, as it is a rather unique and important element of the league. We intend to join information from multiple data sources and test many different algorithms on the project, as many freely available data set are lacking, and many different algorithms have shown success on similar problems.
 
 \section{Related work}
-
 Predicting sports performance is a well studied field. Recently, fantasy sport websites like FanDuel and Draft Kings have opened up new gambling opportunities where machine learning techniques can be applied to predict positive returns\cite{Sugar:aa}, and there has been increased interest in the area\cite{Bishop:2004aa} as the industry grows and becomes more profitable. Sports have valued data mining techniques as it helps eliminate the high emotional stakes the field carries for many of its experts which tend to bias predictions\cite{Haghighat:2013aa}. Sport results can have tremendous world-wide impact, the results of soccer matches have even been shown to affect stock investor behaviour\cite{Edmans:2007aa}, and so accurate prediction can be incredibly valuable outside of the stadium. Most research has investigated predicting the outcome of matches, but now there has been emphasis on selecting a fantasy lineup. Other areas of research include using biomechanical measures to gauge player health and fitness to negotiate contract deals\cite{Davenport:2010aa}, and gauge injury risk \cite{Carling:2012aa,Owen:2015aa}, or examine the impact of mid-season changes to the coaching staff\cite{coach}, all of which can help make better predictions of game outcome, or select better players for a lineup.
 
 Sports data exhibits interesting paradoxes where classic gambling fallacies such as the ``hot-hand'' fallacy actually turn out be real, due to the psychological element of sport. Although the authors of \cite{Gilovich:1985aa} found that in general making one basketball shot did not increase your chances of making another, some baseball players were found to be more ``streaky'' than could be statistically accounted for in \cite{Albert:2008aa}. Making more accurate predictions may rely upon teasing apart some of these more complicated and unintuitive elements of sport data, and verifying conventional wisdom like ``home-field advantage'' is legitimate\cite{textbook}. Identifying the right features to use in training a machine learning model for sport can be tricky. Some approaches have relied upon expert opinion to select features\cite{Zdravevski:2010aa}, while others have added single features iteratively, only keeping them if they increased prediction accuracy\cite{Buursma:2011aa}. Within the game of basketball, a team's performance in the area under the net (short shots and rebounds) was found to have the higher impact on final result than performance anywhere else on the court\cite{Ivankovic:2010aa}. As statistics of soccer tend to be relatively sparse compared to other sports, much effort to apply data mining techniques to the game of soccer have relied upon automated processing of video to detect events in matches\cite{Sykora2015,goal_detection}, player speed \cite{Redwood-Brown:2012aa}, or more complex data like player position on the pitch to discover offensive patterns \cite{offence_patterns}. 
 
- Many classification techniques have been experimented with including Support Vector Machines \cite{Cao:2012aa}, Neural Networks\cite{McCabe:2008aa}, Bayesian Methods\cite{Buursma:2011aa}, Logistic Regression\cite{Cao:2012aa,Buursma:2011aa}, Fuzzy Models\cite{Trawinski:2010aa}, Decision Trees\cite{Zdravevski:2010aa}, and Markov chain Monte Carlo Methods \cite{Rue:2000aa}. It can be difficult to compare the success of these models in different studies because most of them use different data. Additionally, some studies aim to predict binary win/loss, whereas others \cite{Rotshtein:2005aa} classify with margin of victory granularity. Many different methods have shown to have statistically significant predictive powers, with some studies reporting prediction accuracy $>80\%$\cite{Ivankovic:2010aa}. There remains no consensus or conclusion over which methods provide the highest accuracy for sports in general, or the game of soccer. One study \cite{Cao:2012aa} found logistic classifiers, naive bayes, support vector machines, and artificial neural networks to all produce accuracy of $66.82\% \pm 1.00\%$, demonstrating that no method is clearly better over another on the same data.
-
-
-%This \cite{Zdravevski:2010aa} has a pretty good comparison of a lot of different methods with different precisions.
-
-%This \cite{Buursma:2011aa} used fifteen years of soccer in the Netherlands as its data. 
-
-
+ Many classification techniques have been experimented with including Support Vector Machines \cite{Cao:2012aa}, Neural Networks\cite{McCabe:2008aa}, Bayesian Methods\cite{Buursma:2011aa}, Logistic Regression\cite{Cao:2012aa,Buursma:2011aa}, Fuzzy Models\cite{Trawinski:2010aa}, Decision Trees\cite{Zdravevski:2010aa}, and Markov chain Monte Carlo Methods \cite{Rue:2000aa}. It can be difficult to compare the success of these models in different studies because most of them use different data. Additionally, some studies aim to predict binary win/loss, whereas others \cite{Rotshtein:2005aa} classify with margin of victory granularity. Many different methods have shown to have statistically significant predictive powers, with some studies reporting prediction accuracy $>80\%$\cite{Ivankovic:2010aa}. There remains no consensus or conclusion over which methods provide the highest accuracy for sports in general, or the game of soccer. One study \cite{Cao:2012aa} found logistic classifiers, naive Bayes, support vector machines, and artificial neural networks to all produce accuracy of $66.82\% \pm 1.00\%$, demonstrating that no method is clearly better over another on the same data.
 
 \section{Data description}
-The data used for this project will be the team stats of soccer teams. Theses stats will include the win/loss record for the team, which team was the home team, the goals scored by each team in the game, and the team’s place in the standings. Using these stats we can potentially predict the outcome of the match.
-The data source for this project is a website called www.football-data.co.uk. This website has a csv file containing the scores of every game in a season. The website contains csv files for many different European leagues. There is a csv file for every season dating back to 1993. There are also other websites that have APIs that can be used if more information is needed
+The data used for this project will be the team stats of soccer teams. Theses stats will include the win/loss record for the team, which team was the home team, the goals scored by each team in the game, and the team's place in the standings. Using these stats we can potentially predict the outcome of the match.
+The data source for this project is a website called 'www.football-data.co.uk'\cite{football_data}. This website has a csv file containing the scores of every game in a season. The website contains csv files for many different European leagues. There is a csv file for every season dating back to 1993. There are also other websites that have APIs that can be used if more information is needed
 
 \section{Proposed project}
-As outlined in the introduction, our project will be predicting the outcomes of two teams meeting in the English soccer Premier League.
+As outlined in the introduction, our project will be predicting the outcomes of two teams meeting in the EPL.
 
 We have two goals. The first goal is to build a classifier that is  able to predict the outcome of a game between to member teams of the Premier League with acceptable accuracy (this level of accuracy will be defined further into the project).
 
 The second goal is the investigation of the distance to relegation datum. Some questions we are interested in answer regarding relegation are:
-Does a team’s impending relegation improve their performance?
+Does a team's impending relegation improve their performance?
 Does the inclusion of data about closeness to relegation improve the accuracy of a classifier?
 
-We will use multiple data sources. Datasets for soccer are limited. To mitigate this, we will combine data from multiple sources and sets to build our own training and testing sets.
+We will use multiple data sources. Data sets for soccer are limited. To mitigate this, we will combine data from multiple sources and sets to build our own training and testing sets.
 
-We will also use multiple algorithms. Each algorithm will be run on the same sets, and then have their accuracies compared.  The limiting factors here will be time and creativity; we will implement as many algorithms as we can think of that we have time for.
+We will also use multiple algorithms. Each algorithm will be run on the same sets, and then have their accuracy compared.  The limiting factors here will be time and creativity; we will implement as many algorithms as we can think of that we have time for.
 
 We will gather the data of previous games for each team over multiple years. We might even branch out to other leagues to acquire as much information as possible to increase our training data. Once we have acquired as much training data as possible we will make predictions using our algorithms for past games.
 
 Finally, we will explore the effects of the distance to relegation datum on both the accuracy of our predictions and the performance of the teams.
+
 \section{Distribution of tasks}
 At a high level, our project can be broken into two distinct tasks: data preparation and algorithm preparation.
 
-We will have three team members, Alastair, Kolby, and Nishant, working on data preparation while Graeme and Cole will work on algorithm preparation.
-Data preparation entails gathering of data, as well as scrubbing in into a format we can use.
+Unfortunately we had one of our group members, Nishant, drop the class. He was part of data preparation, which we already had two people working on, so we managed to split up the workload to keep on schedule.
 
-Algorithm preparation entails both the design and implementation of an algorithm to work on the data that the data team will provide.
-\clearpage
-%\section{Estimated timeline}
-%\begin{center}
-%\small{\begin{tabular}{|c|c|c|c|c|} 
-%\hline
-%    Time & Task & Start-Date & End-Date & Team-Members\\\hline
-%    {Week 1 ( Jan 25 )} & {Project Proposal} & {25 Jan, 2016} & {27 Jan, 2016} &
-%    \begin{tabular}{l}
-%        Alastair\\
-%        Cole\\
-%        Graeme\\
-%        Kolby\\
-%        Nishant\\
-%    \end{tabular}\\\hline
-%    
-%    {Week 2 ( Feb 1 )} &
-%    \begin{tabular}{l}
-%      Going through available\\
-%      data sets that might be\\
-%      for our project\\
-%    \end{tabular}
-%    & { 1 Feb, 2016 } & { 7 Feb, 2016 } &
-%    \begin{tabular}{l}
-%        Alastair\\
-%        Kolby\\
-%        Nishant\\
-%    \end{tabular}\\\hline
-%    
-%    {Week 3 ( Feb 8 )} &
-%    \begin{tabular}{l}
-%      Extracting useful data\\
-%      from the data set\\
-%    \end{tabular}
-%    & { 8 Feb, 2016 } & { 14 Feb, 2016 } & 
-%    \begin{tabular}{l}
-%        Alastair\\
-%        Kolby\\
-%        Nishant\\
-%    \end{tabular}\\\hline
-%    
-%    {Week 4 ( Feb 15 )} &
-%    \begin{tabular}{l}
-%      Extracting more data and\\
-%      Arranging the data in the\\
-%      order in which they will\\
-%      be required\\
-%    \end{tabular}
-%    & { 15 Feb, 2016 } & { 21 Feb, 2016 } & 
-%    \begin{tabular}{l}
-%        Alastair\\
-%        Kolby\\
-%        Nishant\\
-%    \end{tabular}\\\hline
-%    
-%    {Week 5 ( Feb 22 )} &
-%    \begin{tabular}{l}
-%      Writing the Algorithm to fit\\
-%      the data and try to predict\\
-%      whatever outcome we want\\
-%    \end{tabular}
-%    & { 22 Feb, 2016 } & { 28 Feb, 2016 } & 
-%    \begin{tabular}{l}
-%      Cole\\
-%      Graeme\\
-%    \end{tabular}\\\hline
-%    
-%    {Week 6 (Feb 29 )} &
-%    \begin{tabular}{l}
-%      Continue writing the algorithm\\
-%    \end{tabular}
-%    & { 29  Feb, 2016 } & { 6 Mar, 2016 } & 
-%    \begin{tabular}{l}
-%       Cole\\
-%       Graeme\\
-%    \end{tabular}\\\hline
-%    
-%    {Week 7 ( Mar 7)} &
-%    \begin{tabular}{l}
-%      Testing the algorithm to check\\
-%      whether it works according to\\
-%      our requirements\\
-%    \end{tabular}
-%    & { 7 Mar, 2016 } & { 14 Mar, 2016 } & 
-%    \begin{tabular}{l}
-%      Cole\\
-%      Graeme\\
-%      Alastair\\
-%      Kolby\\
-%      Nishant\\
-%    \end{tabular}\\\hline
-%    
-%    {Week 8 ( Mar 15 )} &
-%    \begin{tabular}{l}
-%      Making some changes to the\\
-%      algorithm if required\\
-%    \end{tabular}
-%    & { 15 Mar, 2016 } & { 21 Mar, 2016 } & 
-%    \begin{tabular}{l}
-%      Cole\\
-%      Graeme\\
-%    \end{tabular}\\\hline
-%    
-%    {Week 8 ( Mar 15 )} &
-%    \begin{tabular}{l}
-%      Preparing the In class\\
-%      presentation\\
-%    \end{tabular}
-%    & { 15 Mar, 2016 } & { 21 Mar, 2016 } & 
-%    \begin{tabular}{l}
-%      Alastair\\
-%      Kolby\\
-%      Nishant\\
-%    \end{tabular}\\\hline
-%    
-%    {Week 9 ( Mar 22 )} &
-%    \begin{tabular}{l}
-%      Continue with testing the\\
-%      algorithm and start preparing\\
-%      the final project report\\
-%    \end{tabular}
-%    & { 22 Mar,2016 } & { 28 Mar, 2016 } & 
-%    \begin{tabular}{l}
-%      Cole\\
-%      Graeme\\
-%      Alastair\\
-%      Kolby\\
-%      Nishant\\
-%    \end{tabular}\\\hline
-%    
-%    {Week 10 ( Mar 29 )} &
-%    \begin{tabular}{l}
-%      Finalizing the changes to the\\
-%      algorithm and completing the\\
-%      project report\\
-%    \end{tabular}
-%    & { 29 Mar, 2016 } & { 1 Apr, 2016 } & 
-%    \begin{tabular}{l}
-%      Cole\\
-%      Graeme\\
-%      Alastair\\
-%      Kolby\\
-%      Nishant\\
-%    \end{tabular}\\\hline
-%\end{tabular}}
-%\end{center}
-%
+We had two team members, Alastair and Kolby, working on data preparation while Graeme and Cole worked on algorithm preparation.
+Data preparation entailed the gathering of data. Algorithm preparation entailed both the design and implementation of an algorithm to work on the data that the data team will provide.
+So far we have gathered the data in the form of csv files and created some naive algorithms.
 
-\section{}
+Next, we will come up with more models that are more accurate in predicting the outcome of a match. If we have extra time, we will also come up with a model that takes into account the threat of relegation. For these other models we will split the work load between Alastair and Kolby, who will work on one model, and Graeme and Cole, who will work on another.
+
+
+\section{Completed Tasks}
 A programming framework has been developed which parses the data so that it is easy to work with. The stats from a given season are loaded into a $\mathtt{Season}$ object, which can be queried for stats for any given team or the league at any date in the season. For example, you can request the number of points that a team has on a given date, or the standings of the league, and the object will ensure that it does not use any future data. The $\mathtt{Season}$ object can be expanded to include more features, and serves as the interface between the raw data and our developed code. Additionally, a $\mathtt{Predictor}$ object has been created which uses features from the $\mathtt{Season}$ object to predict the outcome of matches. At this point, relatively naive predictors have been programmed to determine a baseline. One predictor always chooses the home team, one always chooses the away team. One always predicts the team higher in the standings, and one predicts based only on whether teams had won or lost their last game. The baseline results are shown below over five seasons of EPL soccer.
 
-\begin{center}  \begin{tabular}{@{} cc @{}}    \hline    Predictor & Accuracy \\     \hline
-High Points & 0.456599190283 \\     Last Game & 0.381983805668\\     Home Team & 0.43979757085 \\     Away Team & 0.308259109312\\     \hline  \end{tabular}\end{center}
+\begin{center}
+  \begin{tabular}{@{} cc @{}}
+    \hline
+    Predictor & Accuracy \\ 
+    \hline
+High Points & 0.456599190283 \\ 
+    Last Game & 0.381983805668\\ 
+    Home Team & 0.43979757085 \\ 
+    Away Team & 0.308259109312\\ 
+    \hline
+  \end{tabular}
+\end{center}
 
-It is note worthy how well a home-team predictor performs, rivalling a high-points predictor, and confirming that home field advantage in EPL soccer.
+It is note worthy how well a home-team predictor performs, rivaling a high-points predictor, and confirming that home field advantage in EPL soccer.
 
-A simple decision tree machine learning approach was also tested, using LOOCV where one season was left out as testing data. Limiting the depth of the tree improved results and avoided overfitting, but the accuracy was not much better than the high-points model.  This indicates that more advanced features need to be used, most obviously score.
+A simple decision tree machine learning approach was also tested, using LOOCV where one season was left out as testing data. Limiting the depth of the tree improved results and avoided over fitting, but the accuracy was not much better than the high-points model.  This indicates that more advanced features need to be used, most obviously score.
 
-\begin{center}  \begin{tabular}{@{} cc @{}}    \hline    Decision Tree & Accuracy \\     \hline
-Depth = 2 &0.479028340081\\     Depth = 3 & 0.48012145749\\    Depth = 4 & 0.462874493927 \\     Unlimited Depth & 0.39044534413\\     \hline  \end{tabular}\end{center}
+\begin{center}
+  \begin{tabular}{@{} cc @{}}
+    \hline
+    Decision Tree & Accuracy \\ 
+    \hline
+Depth = 2 &0.479028340081\\ 
+    Depth = 3 & 0.48012145749\\ 
+   Depth = 4 & 0.462874493927 \\ 
+    Unlimited Depth & 0.39044534413\\ 
+    \hline
+  \end{tabular}
+\end{center}
 
-Future work will look to create a new points measure which is more accurate at predicting the a team's abilities, which reflects the following intuition: losing to a good team is not as bad as loosing to a bad team, and losing by a small margin is not as bad as loosing by a large margin, as well as coming up for a model for the influence of the threat of relegation. 
+\section{Future Tasks}
+Future work will look to create a new points measure which is more accurate at predicting the a team's abilities, which reflects the following intuition: losing to a good team is not as bad as losing to a bad team, and losing by a small margin is not as bad as losing by a large margin, as well as coming up for a model for the influence of the threat of relegation. 
+To take into account relegation, we will create a relegation score for each team. An example relegation score would use the following formula which is a ratio between (0,1): 
+
+\begin{center}
+	1 - ($\mathtt{points}$/$\mathtt{team\_max\_points}$)
+\end{center}
+
+Where $\mathtt{points}$ is the current number of points that the team has so far in the season and $\mathtt{team\_max\_points}$ is the maximum number of points a team can get based on the number of games they have left in the season. The higher the relegation score, the closer the team is to relegation. This relegation score formula may still need to be improved.
+We will also want to create an algorithm that determines the outcome of the game by looking at the team's last X number of games. We will want to find an X that will provide the most accurate results. For example, if team A has won 3 of its last 5 games and team B has won 1 of its last 5 games then we will predict that team A will win the game. If it is predicted that both teams will win or both teams will lose, then we will predict a draw for that game. We will run this algorithm for different number of X games to find the X that gives the most accurate results. We will compare these results with the results of the naive algorithms to see if there are any improvements. We will run this algorithm with the relegation score and without the relegation score to see if there are any differences in the outcomes. This will determine if a team being in relegation will affect the outcome of the match. 
+%This section will be used to discuss the comments that we recieved on our intitial proposal
+\section{Discussion}
+Based on the feedback from the initial proposal, we have addressed the following concerns. For each game we will try to predict the outcome of the game, not each team’s potential outcome. 
+
+We will be using features from previous games to predict the outcome of the games. We will look at the win/loss/draw record of the previous games for each team. Based on the team’s previous number of wins, losses, or draws, we will predict the outcome of the game. For example, if team A has won 3 of its last 5 games and team B has won 1 of its last 5 games then we will predict that team A will win the game. If we see in the history of two team’s meeting that there is a tie between wins and losses, this will result in a draw prediction.
+
+We will compare against the naive algorithms that we implemented. We created four naive algorithms. One will always predict the home team will win, another will predict that the away team will win, another will predict that the team higher in the standings will win, and the last one will pick the team that won its last game to win.
 
 \nocite{*}
 
@@ -269,21 +140,7 @@ Future work will look to create a new points measure which is more accurate at p
 % http://www.michaelshell.org/tex/ieeetran/bibtex/
 \bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
-\clearpage
-\bibliography{b.bib}
-%
-% <OR> manually copy in the resultant .bbl file
-% set second argument of \begin to the number of references
-% (used to reserve space for the reference number labels box)
-%\begin{thebibliography}{}
-%
-%\bibitem{}
-%
-%
-%\end{thebibliography}
-
-
-
+\bibliography{b}
 
 % that's all folks
 \end{document}
