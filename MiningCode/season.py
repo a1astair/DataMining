@@ -7,13 +7,27 @@ class Season:
         self.matches = []
         self.record = {}
         self.points = {}
+        self.marginOfVictory = [0]*10
         data = pd.read_csv(filename)
         for index, row in data.iterrows():
             home = row['HomeTeam']
+            homeGoals = row['FTHG']
             away = row['AwayTeam']
+            awayGoals = row['FTAG']
+            self.marginOfVictory[abs(awayGoals - homeGoals)] += 1
             res  = row['FTR']
+            betAOdds = row['B365A']
+            betHOdds = row['B365H']
+            betDOdds = row['B365D']
+            betOdds = min(betAOdds, betHOdds, betDOdds)
+            if betOdds == betAOdds:
+                bet = 'A'
+            elif betOdds == betHOdds:
+                bet = 'H'
+            else:
+                bet = 'D'
             date = time.strptime(row['Date'],'%d/%m/%y')
-            self.matches.append((date,home,away,res))
+            self.matches.append((date,home,away,res,bet))
             if (self.dates):
                 if(self.dates[-1] < date ):
                     self.dates.append(date)
