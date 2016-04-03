@@ -28,7 +28,7 @@ for test_sea in csv_files:
     target = []
     loocv = set(csv_files) - set([test_sea])
     sea = Season(test_sea)
-    for date,home,away,res in sea.matches:
+    for date,home,away,res,bet in sea.matches:
          home_standing, home_remain = sea.standing(home,date)
          away_standing, away_remain = sea.standing(away,date)
          #data.append( [ home_standing, home_remain, c2i[sea.lastGame(home,date)], away_standing, away_remain, c2i[sea.lastGame(away,date)], sea.points_on_date(home,date)-sea.points_on_date(away,date) ] )
@@ -37,7 +37,7 @@ for test_sea in csv_files:
          test_target.append(c2i[res])
     for csv in loocv:
         sea = Season(csv)
-        for date,home,away,res in sea.matches:
+        for date,home,away,res, bet in sea.matches:
              home_standing, home_remain = sea.standing(home,date)
              away_standing, away_remain = sea.standing(away,date)
              #data.append( [ home_standing, home_remain, c2i[sea.lastGame(home,date)], away_standing, away_remain, c2i[sea.lastGame(away,date)], sea.points_on_date(home,date)-sea.points_on_date(away,date) ] )
