@@ -9,7 +9,7 @@
 % *** CITATION PACKAGES ***
 %
 \usepackage{cite}
-
+\usepackage{graphicx}
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
@@ -69,14 +69,14 @@ Finally, we will explore the effects of the distance to relegation datum on both
 \section{Our Approach}
 Finding free to use data sources was difficult. Many sports betting sites do not give out their stats for teams and many sports website either do not have APIs or do not have free to use APIs. We were finally able to find a free to use website that contained all the information we were looking for. This website was described in the previous section.
 
-The next thing we had to do was gather the data so that we can use it. To do this, we created a python program that gathers the data from the csv files. This program allowed us to use the data to make predictions. A Season object was used to gather data from specific seasons. This season object could then the queried to get any stats that are needed. A Predictor object was also created to make the predictions. This Predictor object queried the Season object to get the stats needed to make the prediction for the outcome of the game.
+The next thing we had to do was gather the data so that we can use it. To do this, we created a python program that gathers the data from the csv files. This program allowed us to use the data to make predictions. The stats from a given season are loaded into a $\mathtt{Season}$ object, which can be queried for stats for any given team or the league at any date in the season. For example, you can request the number of points that a team has on a given date, or the standings of the league, and the object will ensure that it does not use any future data. The $\mathtt{Season}$ object can be expanded to include more features, and serves as the interface between the raw data and our developed code. Additionally, a $\mathtt{Predictor}$ object has been created which uses features from the $\mathtt{Season}$ object to predict the outcome of matches.
 
 The first thing that we wanted to do after gathering the data was to get a baseline for predictions by using some naive predictors. The first naive predictor will always predict that the home team wins and another will always predict that the away team wins. Another predictor will always pick the team that is higher in the standings to win and another will predict the winner based on the win/loss record of the team's previous games. If a team has won a majority of its last games, we will predict it to win. If a team has lost a majority of its last games we will predict it to lose. If we predict both teams to win or both teams to lose, then we will predict a draw. The last naive predictor that we used always picked the winner based on who the betting odds predicted to win. Since the betting odds are made by professionals, we wanted to compare all our predictors against it to see how well we could do compared to the professionals.
 
 For a machine learning algorithm we used a decision tree. We wanted to compare how well the machine learning algorithm did compared to the naive algorithms. We used Leave One Out Cross Validation where one season was left out as testing data.
 
 \section{Results}
-A programming framework has been developed which parses the data so that it is easy to work with. The stats from a given season are loaded into a $\mathtt{Season}$ object, which can be queried for stats for any given team or the league at any date in the season. For example, you can request the number of points that a team has on a given date, or the standings of the league, and the object will ensure that it does not use any future data. The $\mathtt{Season}$ object can be expanded to include more features, and serves as the interface between the raw data and our developed code. Additionally, a $\mathtt{Predictor}$ object has been created which uses features from the $\mathtt{Season}$ object to predict the outcome of matches. At this point, relatively naive predictors have been programmed to determine a baseline. One predictor always chooses the home team, one always chooses the away team. One always predicts the team higher in the standings, and one predicts based only on whether teams had won or lost their last game. The baseline results are shown below over five seasons of EPL soccer.
+ At this point, relatively naive predictors have been programmed to determine a baseline. One predictor always chooses the home team, one always chooses the away team. One always predicts the team higher in the standings, and one predicts based only on whether teams had won or lost their last game. We also created a predictor that always chooses the winner based on who has the better betting odds. The machine learning algorithm that we use was a decision tree and was found to be more accurate that the naive predictors. The results are shown below over five seasons of EPL soccer.
 
 \begin{center}
   \begin{tabular}{@{} cc @{}}
@@ -87,26 +87,25 @@ High Points & 0.456599190283 \\
     Last Game & 0.381983805668\\ 
     Home Team & 0.43979757085 \\ 
     Away Team & 0.308259109312\\ 
+    Betting Odds & 0.525829959514\\
+    Decision Tree & 0.534736842105\\
     \hline
   \end{tabular}
 \end{center}
 
 It is note worthy how well a home-team predictor performs, rivaling a high-points predictor, and confirming that home field advantage in EPL soccer.
 
-A simple decision tree machine learning approach was also tested, using LOOCV where one season was left out as testing data. Limiting the depth of the tree improved results and avoided over fitting, but the accuracy was not much better than the high-points model.  This indicates that more advanced features need to be used, most obviously score.
+A simple decision tree machine learning approach was used, using LOOCV where one season was left out as testing data. Limiting the depth of the tree improved results and avoided over fitting, but the accuracy was not much better than the high-points model. This indicates that more advanced features need to be used, most obviously score.
 
-\begin{center}
-  \begin{tabular}{@{} cc @{}}
-    \hline
-    Decision Tree & Accuracy \\ 
-    \hline
-Depth = 2 &0.479028340081\\ 
-    Depth = 3 & 0.48012145749\\ 
-   Depth = 4 & 0.462874493927 \\ 
-    Unlimited Depth & 0.39044534413\\ 
-    \hline
-  \end{tabular}
-\end{center}
+The following graph shows how each of the predictors compare against each other.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{graph}
+\caption{}
+\label{fig:graph}
+\end{figure}
+\pagebreak
 
 \section{Conclusion and Future Work}
 Future work will look to create a new points measure which is more accurate at predicting the a team's abilities, which reflects the following intuition: losing to a good team is not as bad as losing to a bad team, and losing by a small margin is not as bad as losing by a large margin, as well as coming up for a model for the influence of the threat of relegation. 
