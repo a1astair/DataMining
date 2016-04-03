@@ -67,20 +67,9 @@ We will also use multiple algorithms. Each algorithm will be run on the same set
 We will gather the data of previous games for each team over multiple years. We might even branch out to other leagues to acquire as much information as possible to increase our training data. Once we have acquired as much training data as possible we will make predictions using our algorithms for past games.
 
 Finally, we will explore the effects of the distance to relegation datum on both the accuracy of our predictions and the performance of the teams.
+\section{Our Approach}
 
-\section{Distribution of tasks}
-At a high level, our project can be broken into two distinct tasks: data preparation and algorithm preparation.
-
-Unfortunately we had one of our group members, Nishant, drop the class. He was part of data preparation, which we already had two people working on, so we managed to split up the workload to keep on schedule.
-
-We had two team members, Alastair and Kolby, working on data preparation while Graeme and Cole worked on algorithm preparation.
-Data preparation entailed the gathering of data. Algorithm preparation entailed both the design and implementation of an algorithm to work on the data that the data team will provide.
-So far we have gathered the data in the form of csv files and created some naive algorithms.
-
-Next, we will come up with more models that are more accurate in predicting the outcome of a match. If we have extra time, we will also come up with a model that takes into account the threat of relegation. For these other models we will split the work load between Alastair and Kolby, who will work on one model, and Graeme and Cole, who will work on another.
-
-
-\section{Completed Tasks}
+\section{Results}
 A programming framework has been developed which parses the data so that it is easy to work with. The stats from a given season are loaded into a $\mathtt{Season}$ object, which can be queried for stats for any given team or the league at any date in the season. For example, you can request the number of points that a team has on a given date, or the standings of the league, and the object will ensure that it does not use any future data. The $\mathtt{Season}$ object can be expanded to include more features, and serves as the interface between the raw data and our developed code. Additionally, a $\mathtt{Predictor}$ object has been created which uses features from the $\mathtt{Season}$ object to predict the outcome of matches. At this point, relatively naive predictors have been programmed to determine a baseline. One predictor always chooses the home team, one always chooses the away team. One always predicts the team higher in the standings, and one predicts based only on whether teams had won or lost their last game. The baseline results are shown below over five seasons of EPL soccer.
 
 \begin{center}
@@ -113,7 +102,8 @@ Depth = 2 &0.479028340081\\
   \end{tabular}
 \end{center}
 
-\section{Future Tasks}
+%Our conclusion and future work we could do on this project
+\section{Conclusion and Future Work}
 Future work will look to create a new points measure which is more accurate at predicting the a team's abilities, which reflects the following intuition: losing to a good team is not as bad as losing to a bad team, and losing by a small margin is not as bad as losing by a large margin, as well as coming up for a model for the influence of the threat of relegation. 
 To take into account relegation, we will create a relegation score for each team. An example relegation score would use the following formula which is a ratio between (0,1): 
 
@@ -123,8 +113,7 @@ To take into account relegation, we will create a relegation score for each team
 
 Where $\mathtt{points}$ is the current number of points that the team has so far in the season and $\mathtt{team\_max\_points}$ is the maximum number of points a team can get based on the number of games they have left in the season. The higher the relegation score, the closer the team is to relegation. This relegation score formula may still need to be improved.
 We will also want to create an algorithm that determines the outcome of the game by looking at the team's last X number of games. We will want to find an X that will provide the most accurate results. For example, if team A has won 3 of its last 5 games and team B has won 1 of its last 5 games then we will predict that team A will win the game. If it is predicted that both teams will win or both teams will lose, then we will predict a draw for that game. We will run this algorithm for different number of X games to find the X that gives the most accurate results. We will compare these results with the results of the naive algorithms to see if there are any improvements. We will run this algorithm with the relegation score and without the relegation score to see if there are any differences in the outcomes. This will determine if a team being in relegation will affect the outcome of the match. 
-%This section will be used to discuss the comments that we recieved on our intitial proposal
-\section{Discussion}
+\section{Task Breakdown}
 Based on the feedback from the initial proposal, we have addressed the following concerns. For each game we will try to predict the outcome of the game, not each team’s potential outcome. 
 
 We will be using features from previous games to predict the outcome of the games. We will look at the win/loss/draw record of the previous games for each team. Based on the team’s previous number of wins, losses, or draws, we will predict the outcome of the game. For example, if team A has won 3 of its last 5 games and team B has won 1 of its last 5 games then we will predict that team A will win the game. If we see in the history of two team’s meeting that there is a tie between wins and losses, this will result in a draw prediction.
