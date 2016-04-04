@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.2.26)  3 APR 2016 16:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.1.26)  3 APR 2016 16:59
 entering extended mode
 **Proposal.tex
 (Proposal.tex
-LaTeX2e <2014/05/01>
-Babel <3.9l> and hyphenation patterns for 68 languages loaded.
+LaTeX2e <2015/01/01> patch level 2
+Babel <3.9m> and hyphenation patterns for 69 languages loaded.
 (IEEEtran.cls
 Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 -- See the "IEEEtran_HOWTO" manual for usage information.
@@ -132,7 +132,7 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
-Package graphics Info: Driver file: pdftex.def on input line 91.
+Package graphics Info: Driver file: pdftex.def on input line 94.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
@@ -181,20 +181,20 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 48.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 48.
- [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
+ [1{C:/Users/Alastair/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 ]
 <graph.jpg, id=9, 363.60844pt x 277.035pt>
 File: graph.jpg Graphic file (type jpg)
  <use graph.jpg>
-Package pdftex.def Info: graph.jpg used on input line 104.
-(pdftex.def)             Requested size: 176.39923pt x 134.40408pt.
+Package pdftex.def Info: graph.jpg used on input line 105.
+(pdftex.def)             Requested size: 361.19843pt x 275.20816pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-(Proposal.bbl [3 <./graph.jpg>])
+[3 <./graph.jpg>] (Proposal.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -206,25 +206,23 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[4
-
-] (Proposal.aux) ) 
+[4] (Proposal.aux) ) 
 Here is how much of TeX's memory you used:
- 2076 strings out of 493698
- 32954 string characters out of 3144412
- 97406 words of memory out of 3000000
- 5431 multiletter control sequences out of 15000+200000
+ 2076 strings out of 493673
+ 32954 string characters out of 3143951
+ 101695 words of memory out of 3000000
+ 5453 multiletter control sequences out of 15000+200000
  32386 words of font info for 64 fonts, out of 3000000 for 9000
  1028 hyphenation exceptions out of 8191
  27i,7n,19p,1664b,230s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times
-/utmri8a.pfb>
-Output written on Proposal.pdf (4 pages, 147099 bytes).
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.en
+c}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/tim
+es/utmri8a.pfb>
+Output written on Proposal.pdf (4 pages, 147011 bytes).
 PDF statistics:
  41 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

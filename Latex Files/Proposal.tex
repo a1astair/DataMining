@@ -76,6 +76,7 @@ The first thing that we wanted to do after gathering the data was to get a basel
 For a machine learning algorithm we used a decision tree. We wanted to compare how well the machine learning algorithm did compared to the naive algorithms. We used Leave One Out Cross Validation where one season was left out as testing data.
 
 \section{Results}
+
  At this point, relatively naive predictors have been programmed to determine a baseline. One predictor always chooses the home team, one always chooses the away team. One always predicts the team higher in the standings, and one predicts based only on whether teams had won or lost their last game. We also created a predictor that always chooses the winner based on who has the better betting odds. The machine learning algorithm that we use was a decision tree and was found to be more accurate that the naive predictors. The results are shown below over five seasons of EPL soccer.
 
 \begin{center}
@@ -97,16 +98,15 @@ It is note worthy how well a home-team predictor performs, rivaling a high-point
 
 A simple decision tree machine learning approach was used, using LOOCV where one season was left out as testing data. Limiting the depth of the tree improved results and avoided over fitting, but the accuracy was not much better than the high-points model. This indicates that more advanced features need to be used, most obviously score.
 
-The following graph shows how each of the predictors compare against each other.
+The following graph (Fig. 1.) shows how each of the predictors compare against each other.
 
-\begin{figure}
+\begin{figure*}[tb]
 \centering
 \includegraphics[width=0.7\linewidth]{graph}
 \caption{}
 \label{fig:graph}
-\end{figure}
+\end{figure*}
 \pagebreak
-
 \section{Conclusion and Future Work}
 Future work will look to create a new points measure which is more accurate at predicting the a team's abilities, which reflects the following intuition: losing to a good team is not as bad as losing to a bad team, and losing by a small margin is not as bad as losing by a large margin, as well as coming up for a model for the influence of the threat of relegation. 
 To take into account relegation, we will create a relegation score for each team. An example relegation score would use the following formula which is a ratio between (0,1): 
