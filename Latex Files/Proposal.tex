@@ -38,7 +38,7 @@
 \IEEEpeerreviewmaketitle
 
 \section{Introduction}
-This project will mine English Premier League (EPL) data to predict the winners of soccer games. One factor we are particularly excited to consider is the threat of relegation, as it is a rather unique and important element of the league. We intend to join information from multiple data sources and test many different algorithms on the project, as many freely available data set are lacking, and many different algorithms have shown success on similar problems.
+For this project we mined English Premier League (EPL) data to predict the winners of soccer games. One factor we are particularly excited to consider is the threat of relegation, as it is a rather unique and important element of the league. Relegation is when the bottom three teams of the league get demoted to a lower level league at the end of the season. We want to see how the threat of relegation will affect a team's play. We intend to join information from multiple data sources and test many different algorithms on the project, as many freely available data set are lacking, and many different algorithms have shown success on similar problems.
 
 \section{Related work}
 Predicting sports performance is a well studied field. Recently, fantasy sport websites like FanDuel and Draft Kings have opened up new gambling opportunities where machine learning techniques can be applied to predict positive returns\cite{Sugar:aa}, and there has been increased interest in the area\cite{Bishop:2004aa} as the industry grows and becomes more profitable. Sports have valued data mining techniques as it helps eliminate the high emotional stakes the field carries for many of its experts which tend to bias predictions\cite{Haghighat:2013aa}. Sport results can have tremendous world-wide impact, the results of soccer matches have even been shown to affect stock investor behaviour\cite{Edmans:2007aa}, and so accurate prediction can be incredibly valuable outside of the stadium. Most research has investigated predicting the outcome of matches, but now there has been emphasis on selecting a fantasy lineup. Other areas of research include using biomechanical measures to gauge player health and fitness to negotiate contract deals\cite{Davenport:2010aa}, and gauge injury risk \cite{Carling:2012aa,Owen:2015aa}, or examine the impact of mid-season changes to the coaching staff\cite{coach}, all of which can help make better predictions of game outcome, or select better players for a lineup.
@@ -77,6 +77,7 @@ For a machine learning algorithm we used a decision tree. We wanted to compare h
 
 \section{Results}
 
+
  At this point, relatively naive predictors have been programmed to determine a baseline. One predictor always chooses the home team, one always chooses the away team. One always predicts the team higher in the standings, and one predicts based only on whether teams had won or lost their last game. We also created a predictor that always chooses the winner based on who has the better betting odds. The machine learning algorithm that we use was a decision tree and was found to be more accurate that the naive predictors. The results are shown below over five seasons of EPL soccer.
 
 \begin{center}
@@ -98,21 +99,43 @@ It is note worthy how well a home-team predictor performs, rivaling a high-point
 
 A simple decision tree machine learning approach was used, using LOOCV where one season was left out as testing data. Limiting the depth of the tree improved results and avoided over fitting, but the accuracy was not much better than the high-points model. This indicates that more advanced features need to be used, most obviously score.
 
-The following graph (Fig. 1.) shows how each of the predictors compare against each other.
+Fig. 1. shows how each of the predictors compare against each other. 
 
-\begin{figure*}[tb]
+\clearpage
+
+\begin{figure}
 \centering
 \includegraphics[width=0.7\linewidth]{graph}
 \caption{}
 \label{fig:graph}
-\end{figure*}
-\pagebreak
-\section{Conclusion and Future Work}
-Future work will look to create a new points measure which is more accurate at predicting the a team's abilities, which reflects the following intuition: losing to a good team is not as bad as losing to a bad team, and losing by a small margin is not as bad as losing by a large margin, as well as coming up for a model for the influence of the threat of relegation. 
-To take into account relegation, we will create a relegation score for each team. An example relegation score would use the following formula which is a ratio between (0,1): 
+\end{figure}
 
+
+%still more to do here
+\section{Conclusion and Future Work}
+Future work will look at three tasks that we would like to complete.\begin{center}
+ \begin{tabular}{@{} cc @{}} 
+   \hline
+        Find most accurate machine-learning model (time allowing)\\ 
+       Use our relegation feature in a model\\  
+       Learn a more accurate points system\\ 
+   \hline
+ \end{tabular}
+\end{center}
+\hfill
+
+We are measuring a team’s closeness to relegation as a normalized number (0.0, 1.0)
 \begin{center}
-	1 - ($\mathtt{points}$/$\mathtt{team\_max\_points}$)
+ \begin{tabular}{@{} cc @{}} 
+   \hline
+0 means no chance of relegation\\
+1 means high chance of relegation\\
+\hline
+ \end{tabular}
+\end{center}
+Measure in this case will be derived from this formula
+\begin{center}
+Measure:  team pts + theoretical max remaining pts / max pts.
 \end{center}
 
 Where $\mathtt{points}$ is the current number of points that the team has so far in the season and $\mathtt{team\_max\_points}$ is the maximum number of points a team can get based on the number of games they have left in the season. The higher the relegation score, the closer the team is to relegation. This relegation score formula may still need to be improved.
