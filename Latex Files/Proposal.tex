@@ -18,7 +18,7 @@
 
 %
 % paper title
-
+	
 \title{Team Prediction in the English Premier League\\ {\large SENG 474}}
 
 \author{%
@@ -67,7 +67,18 @@ We will gather the data of previous games for each team over multiple years. We 
 
 Finally, we will explore the effects of the distance to relegation datum on both the accuracy of our predictions and the performance of the teams.
 \section{Our Approach}
+\begin{figure}[b]
+\centering
+\includegraphics[width=0.7\linewidth]{MarginOfVictory}
+\caption{}
+\label{fig:MarginOfVictory}
+\end{figure}
+
+
 Finding free to use data sources was difficult. Many sports betting sites do not give out their stats for teams and many sports website either do not have APIs or do not have free to use APIs. We were finally able to find a free to use website that contained all the information we were looking for. This website was described in the previous section.
+
+Another difficult factor of soccer games is the nature of how close they are. Fig. 1. shows the margin of victory of EPL games and this is over several seasons. The fact that games are so close and on average separated by 1 goal, makes game prediction very difficult.
+
 
 The next thing we had to do was gather the data so that we can use it. To do this, we created a python program that gathers the data from the csv files. This program allowed us to use the data to make predictions. The stats from a given season are loaded into a $\mathtt{Season}$ object, which can be queried for stats for any given team or the league at any date in the season. For example, you can request the number of points that a team has on a given date, or the standings of the league, and the object will ensure that it does not use any future data. The $\mathtt{Season}$ object can be expanded to include more features, and serves as the interface between the raw data and our developed code. Additionally, a $\mathtt{Predictor}$ object has been created which uses features from the $\mathtt{Season}$ object to predict the outcome of matches.
 
@@ -89,7 +100,7 @@ Since the EPL points system is an important feature in correctly predicting the 
 
 \section{Results}
 
- At this point, relatively naive predictors have been programmed to determine a baseline. One predictor always chooses the home team, one always chooses the away team. One always predicts the team higher in the standings, and one predicts based only on whether teams had won or lost their last game. We also created a predictor that always chooses the winner based on who has the better betting odds. The machine learning algorithm that we use was a decision tree and was found to be more accurate that the naive predictors. The results are shown below over five seasons of EPL soccer.
+ Naive predictors have been programmed to determine a baseline. One predictor always chooses the home team, one always chooses the away team. One always predicts the team higher in the standings, and one predicts based only on whether teams had won or lost their last game. We also created a predictor that always chooses the winner based on who has the better betting odds. The machine learning algorithm that we use was a decision tree and was found to be more accurate that the naive predictors. The results are shown below over five seasons of EPL soccer.
 
 \begin{center}
   \begin{tabular}{@{} cc @{}}
@@ -110,11 +121,11 @@ It is note worthy how well a home-team predictor performs, rivaling a high-point
 
 A simple decision tree machine learning approach was used, using LOOCV where one season was left out as testing data. Limiting the depth of the tree improved results and avoided over fitting, but the accuracy was not much better than the high-points model. This indicates that more advanced features need to be used, most obviously score.
 
-Fig. 1. shows how each of the predictors compare against each other. 
+Fig. 2. shows how each of the predictors compare against each other. 
 
 For the effect of relegation. The accuracy of predictions without relegation was 36.15\% while the accuracy with the relegation data was 36.53\%. This represented only a slight increase (0.4\%) in predictive power when a team's closeness to relegation was taken into account.
 
-\begin{figure}[h]
+\begin{figure}[t]
 \centering
 \includegraphics[width=0.7\linewidth]{graph}
 \caption{}
@@ -215,6 +226,8 @@ We also want to try more of our algorithms with our relegation score taken into 
 Kolby and Alastair worked together to do the write ups for the project reports and help out with some of the code. This sub-team also collected all the data for this project using the website and methods explained in Data Description. This sub-team focused on making sure the group was meeting the proper deadlines and helping out with the coding and machine learning aspects when the other sub-team needed help. Kolby and Alastair also coded the betting odds into the graph so we could have a baseline for our algorithms to be compared to.
 
 Graeme and Cole worked on creating python scripts and training the machine learning algorithms on the data. This sub-team trained our decision tree and also the other predictors and created a graph for the results of these predictors based on our data. These two sub-teams worked very well together as we could easily delegate tasks to each other to meet our deadlines. Since most of our scripts were not too challenging, either Graeme or Cole would be assigned to complete these tasks and then we would all check to make sure it generated the results we needed.
+
+In terms of writing the report Cole completed the Related work section and got the team starting in doing research on past projects relating to ours. The main reason as to why we had such a strong start on how to accomplish our task at hand was due to Cole's extensive research into the related work. Graeme helped complete the approach section as he mainly focused on the relegation statistic and factoring relegation into our algorithms and learning models. Being the expert on relegation all parts of the report relating to that were completed by Graeme. 
 
 Every member of the team would be involved in the decision for deciding our next step and the work was evenly distributed between each member, if Cole and Graeme was working on more scripts, Alastair and Kolby would be working on adding more functionality to the scripts or documenting the changes in our reports to keep track of what is happening. This project was a success due to the high work ethic of every team member and the separation of tasks into sub tasks that each sub-team could tackle with ease. 
 
