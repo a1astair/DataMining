@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.1.26)  6 APR 2016 20:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.2.26)  6 APR 2016 21:45
 entering extended mode
 **Proposal.tex
 (Proposal.tex
-LaTeX2e <2015/01/01> patch level 2
-Babel <3.9m> and hyphenation patterns for 69 languages loaded.
+LaTeX2e <2014/05/01>
+Babel <3.9l> and hyphenation patterns for 68 languages loaded.
 (IEEEtran.cls
 Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 -- See the "IEEEtran_HOWTO" manual for usage information.
@@ -132,7 +132,7 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
-Package graphics Info: Driver file: pdftex.def on input line 94.
+Package graphics Info: Driver file: pdftex.def on input line 91.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
@@ -193,7 +193,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 51.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 51.
- [1{C:/Users/Alastair/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+ [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 ]
@@ -246,10 +246,10 @@ Before submitting the final camera ready copy, remember to:
 
 [5] (Proposal.aux) ) 
 Here is how much of TeX's memory you used:
- 2101 strings out of 493673
- 33278 string characters out of 3143951
- 99711 words of memory out of 3000000
- 5470 multiletter control sequences out of 15000+200000
+ 2101 strings out of 493698
+ 33278 string characters out of 3144412
+ 98422 words of memory out of 3000000
+ 5448 multiletter control sequences out of 15000+200000
  36269 words of font info for 74 fonts, out of 3000000 for 9000
  1028 hyphenation exceptions out of 8191
  27i,7n,19p,1664b,230s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -261,7 +261,7 @@ es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX
 ts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 /urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8
 a.pfb>
-Output written on Proposal.pdf (5 pages, 188560 bytes).
+Output written on Proposal.pdf (5 pages, 188526 bytes).
 PDF statistics:
  51 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
