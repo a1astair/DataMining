@@ -1,0 +1,16 @@
+APPROACH
+================
+    Relegations effect was also explored. This began by calculating a custom statistic to represent a team's closeness to relegation. This statistic was calculated for each team in a match with reference to the match itself. This approach was chosen to represent that a low amount of points at the beginning of the season should not bring a team as close to relegation as a low amount of points at the end of the season.
+    For each match in the dataset, the away team and home team had their pre-match closeness to relegation calculated as: R = (Pc - Pt) / (Pm), where Pc is the points the team currently has, Pt is the theoretical maximum points available to the team in the season, and Pm is the maximum amount of points a team can achieve in a season. 
+    We chose to use the theoretical maximum remaining points rather than the probably amount of remaining points in this calculation to represent a team's optimistic view of the future. In essence, we believe that humans are simultanously hopeful and naturally bad statiticians, and therefore we think that teams would take the view that the amount of points remaining to them is the theoretical maximum (the amount they would achieve if they won all upcoming games). 
+    This gave as value for R, our closeness to relegation statistic, which ranged between 0 and 1. To test the effect the thread of relegation has on how well teams played we created four data sets. The first two sets were created from first removing all but the HomeTeam, AwayTeam, and FTR columns from our data, and then duplicating the set and appending the R calculation for each team. The second two sets were created in a similar matter from a different seasons data.
+    With these data sets we trained an SVM classifier. First we trained the classifier on the 14-15 season data and used it to predict the 15-16 season. Second, we trained on the appended 14-15 season data and used it to predict the appended 15-16 season's outcomes.
+
+RESULTS
+=====================
+The accuracy of predictions without relegation was 36.15% while the accuracy with the relegation data was 36.53%. This represented only a slight increase (0.4%) in predictive power when a team's closeness to relegation was taken into account.
+
+
+CONCLUSIONS
+====================
+Closeness to relegation has negligible increase on the predictive power of SVM classifiers over the EPL data.
